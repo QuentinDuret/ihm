@@ -4,9 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class MainApp extends Application {
 
@@ -16,20 +19,29 @@ public class MainApp extends Application {
         launch(args);
     }
 
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws IOException {
 
-        log.info("Starting Hello JavaFX and Maven demonstration application");
+        BorderPane borderPane = new BorderPane();
 
-        String fxmlFile = "/fxml/polytech_home.fxml";
-        log.debug("Loading FXML for main view from: {}", fxmlFile);
-        FXMLLoader loader = new FXMLLoader();
-        Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+        primaryStage.setTitle("Bienvenue");
 
-        log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 600, 400);
+        String fxmlFileTop = "/fxml/Haut_de_page.fxml";
+        Parent rootNodeTop = FXMLLoader.load(getClass().getResource(fxmlFileTop));
+        borderPane.setTop(rootNodeTop);
 
-        stage.setTitle("Hello JavaFX and Maven");
-        stage.setScene(scene);
-        stage.show();
+        String fxmlFileCenter = "/fxml/centerHome.fxml";
+        Parent rootNodeCenter = FXMLLoader.load(getClass().getResource(fxmlFileCenter));
+        borderPane.setCenter(rootNodeCenter);
+
+
+        String fxmlFileBottom = "/fxml/Bas_de_page.fxml";
+        Parent rootNodeBottom = FXMLLoader.load(getClass().getResource(fxmlFileBottom));
+        borderPane.setBottom(rootNodeBottom);
+
+        Scene scene = new Scene(borderPane);
+
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
     }
 }
