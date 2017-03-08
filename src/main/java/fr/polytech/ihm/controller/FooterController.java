@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.OpenFxml;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,36 +29,27 @@ public class FooterController {
 
     @FXML
     void clickEmail(ActionEvent event) {
-        openScene( "/fxml/email.fxml");
+        OpenFxml openFxml = new OpenFxml("/fxml/email.fxml");
+        openFxml.open();
     }
 
     @FXML
     void clickFacebook(ActionEvent event) {
-        openScene( "/fxml/Facebook.fxml");
+        OpenFxml openFxml = new OpenFxml("/fxml/Facebook.fxml");
+        openFxml.open();
     }
 
     @FXML
     void clickTwitter(ActionEvent event) {
-        openScene( "/fxml/Twitter.fxml");
+        OpenFxml openFxml = new OpenFxml("/fxml/Twitter.fxml");
+        openFxml.open();
     }
+
 
     @FXML
     void clikTeaches(ActionEvent event) {
-        openScene( "/fxml/Teaches.fxml");
-    }
-
-    private void openScene (String fxmlFile){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (IOException e){
-            JOptionPane.showInputDialog(null, e);
-        }
+        OpenFxml openFxml = new OpenFxml("/fxml/Teaches.fxml");
+        openFxml.open();
     }
 
 }

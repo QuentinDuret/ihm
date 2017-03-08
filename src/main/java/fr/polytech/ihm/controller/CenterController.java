@@ -22,11 +22,6 @@ import java.util.List;
  */
 public class CenterController {
 
-    private static final List<String> image = Arrays.asList("/images/promo.jpg","/images/book/merlinBook.jpg", "/images/book/livreDemain.png", "/images/cd/cdAdele.jpg");
-
-    private static final int numberPage = 4;
-
-
     @FXML
     private Pagination pagination;
 

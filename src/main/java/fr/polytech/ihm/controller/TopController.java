@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.OpenFxml;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,23 +23,11 @@ public class TopController {
 
     @FXML
     void clickBasket(MouseEvent event) {
-        openScene("/fxml/commande.fxml");
+        OpenFxml openFxml = new OpenFxml("/fxml/commande.fxml");
+        openFxml.open();
     }
 
 
-    private void openScene (String fxmlFile){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (IOException e){
-            JOptionPane.showInputDialog(null, e);
-        }
-    }
 
 
 }
