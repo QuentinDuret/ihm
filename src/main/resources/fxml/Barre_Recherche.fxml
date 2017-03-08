@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.LeftController">
+   <children>
+      <Label alignment="CENTER" prefHeight="81.0" prefWidth="200.0" text="Recherche d'article">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="121.0" text="    Rayon :">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TableView prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="item" prefWidth="150.0" text="Produits" />
+          <TableColumn fx:id="check1" prefWidth="50.0" text="Choix" />
+        </columns>
+          
+      </TableView>
+      <Label alignment="BOTTOM_LEFT" prefHeight="62.0" prefWidth="250.0" text="    Prix :">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TableView prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="price" prefWidth="150.0" text="Prix" />
+          <TableColumn fx:id="check2" prefWidth="50.0" text="Choix" />
+        </columns>
+      </TableView>
+      <Pane prefHeight="80.0" prefWidth="250.0">
+         <children>
+            <TextField fx:id="SearchBar" alignment="CENTER" layoutX="27.0" layoutY="35.0" prefHeight="27.0" prefWidth="147.0" onAction="#newSearch" promptText="Nom du produit" />
+         </children>
+      </Pane>
+      <Pane prefHeight="74.0" prefWidth="250.0">
+         <children>
+            <Button fx:id="searchButton" alignment="CENTER" layoutX="53.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickOnButton" text="Rechercher" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
