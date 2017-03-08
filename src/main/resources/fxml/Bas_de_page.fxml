@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.FooterController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.FooterController">
    <children>
       <BorderPane prefHeight="150.0" prefWidth="919.0">
          <top>
@@ -27,12 +27,12 @@
          <bottom>
             <HBox alignment="TOP_CENTER" prefHeight="47.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="Teaches" mnemonicParsing="false" onAction="#clikTeaches" text="TBOTH" />
-                  <Button fx:id="Twitter" mnemonicParsing="false" onAction="#clickTwitter" text="Twitter">
+                  <Button fx:id="teaches" mnemonicParsing="false" onAction="#clikTeaches" text="TBOTH" />
+                  <Button fx:id="twitter" mnemonicParsing="false" onAction="#clickTwitter" text="Twitter">
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="Facebook" mnemonicParsing="false" onAction="#clickFacebook" text="Facebook" />
+                  <Button fx:id="facebook" mnemonicParsing="false" onAction="#clickFacebook" text="Facebook" />
                </children>
             </HBox>
          </bottom>

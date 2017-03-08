@@ -21,26 +21,11 @@ public class MainApp extends Application {
 
     public void start(Stage primaryStage) throws IOException {
 
-        BorderPane borderPane = new BorderPane();
-
         primaryStage.setTitle("Bienvenue");
 
-        String fxmlFileTop = "/fxml/Haut_de_page.fxml";
-        Parent rootNodeTop = FXMLLoader.load(getClass().getResource(fxmlFileTop));
-        borderPane.setTop(rootNodeTop);
+        CreateView createView = new CreateView("/fxml/centerHome.fxml");
 
-        String fxmlFileCenter = "/fxml/centerHome.fxml";
-        Parent rootNodeCenter = FXMLLoader.load(getClass().getResource(fxmlFileCenter));
-        borderPane.setCenter(rootNodeCenter);
-
-
-        String fxmlFileBottom = "/fxml/Bas_de_page.fxml";
-        Parent rootNodeBottom = FXMLLoader.load(getClass().getResource(fxmlFileBottom));
-        borderPane.setBottom(rootNodeBottom);
-
-        Scene scene = new Scene(borderPane);
-
-        primaryStage.setScene(scene);
+        primaryStage.setScene(createView.addCenter());
 
         primaryStage.show();
     }
