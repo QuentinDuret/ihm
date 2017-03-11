@@ -35,16 +35,11 @@ public class OpenFxml {
 
 
     public void open(Stage stage){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(name));
-            Scene scene = new Scene(root);
+        CreateView createView = new CreateView(name);
 
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (IOException e){
-            JOptionPane.showInputDialog(null, e);
-        }
+        stage.setScene(createView.addCenter());
+        stage.show();
+
     }
 
 }
