@@ -34,6 +34,9 @@ public class TopController {
     private Button cd;
 
     @FXML
+    private Button stageDev;
+
+    @FXML
     void clickBasket(MouseEvent event) {
         OpenFxml openFxml = new OpenFxml("/fxml/commande.fxml");
         openFxml.open();
@@ -67,9 +70,12 @@ public class TopController {
         openFxml.open(stage);
     }
 
-
-
-
+    @FXML
+    void clickStage(MouseEvent event) {
+        Stage stage = (Stage) stageDev.getScene().getWindow();
+        OpenFxml openFxml = new OpenFxml("/fxml/CenterStage.fxml");
+        openFxml.open(stage);
+    }
 
 
 }

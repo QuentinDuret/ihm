@@ -67,7 +67,7 @@
                   <Button fx:id="book" mnemonicParsing="false" onMouseClicked="#clickBook" text="Livres" GridPane.rowIndex="1" />
                   <Button fx:id="cd" mnemonicParsing="false" onMouseClicked="#clickCd" text="CD" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button fx:id="dvd" mnemonicParsing="false" onMouseClicked="#clickDvd" text="DVD" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Stages" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="stageDev" mnemonicParsing="false" onMouseClicked="#clickStage" text="Stages" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
