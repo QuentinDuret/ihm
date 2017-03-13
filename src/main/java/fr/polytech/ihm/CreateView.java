@@ -44,6 +44,7 @@ public class CreateView {
         }
 
         Scene scene = new Scene(borderPane);
+        scene.getStylesheets().add("/css/presentation.css");
 
         return scene;
 

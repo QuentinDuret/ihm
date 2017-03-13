@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -16,37 +19,99 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="121.0" text="    Rayon :">
+      <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="121.0" text="    Rayons :">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <TableView prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="item" prefWidth="150.0" text="Produits" />
-          <TableColumn fx:id="check1" prefWidth="50.0" text="Choix" />
-        </columns>
-          
-      </TableView>
+      <GridPane fx:id="rayonGrid">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="  Livres">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="  CD" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="  DVD" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="  Stages" GridPane.rowIndex="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="livreCheck" mnemonicParsing="false" GridPane.columnIndex="1" />
+            <CheckBox fx:id="cdCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="dvdCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <CheckBox fx:id="stageCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Button fx:id="rayonSearch" mnemonicParsing="false" onAction="#checkRayon" text="Rechercher">
+         <VBox.margin>
+            <Insets left="55.0" top="10.0" />
+         </VBox.margin>
+      </Button>
       <Label alignment="BOTTOM_LEFT" prefHeight="62.0" prefWidth="250.0" text="    Prix :">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <TableView prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="price" prefWidth="150.0" text="Prix" />
-          <TableColumn fx:id="check2" prefWidth="50.0" text="Choix" />
-        </columns>
-      </TableView>
+      <GridPane fx:id="prixGrid">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="137.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="63.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="  Moins de 10">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="  De 10 à 50" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="  50 et plus" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="zeroCheck" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" GridPane.columnIndex="1" />
+            <CheckBox fx:id="dixCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="cinquanteCheck" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
       <Pane prefHeight="80.0" prefWidth="250.0">
          <children>
-            <TextField fx:id="SearchBar" alignment="CENTER" layoutX="27.0" layoutY="35.0" prefHeight="27.0" prefWidth="147.0" onAction="#newSearch" promptText="Nom du produit" />
+            <Button fx:id="priceSearch" alignment="CENTER" layoutX="53.0" layoutY="14.0" mnemonicParsing="false" onAction="#checkPrice" text="Rechercher" />
          </children>
       </Pane>
       <Pane prefHeight="74.0" prefWidth="250.0">
          <children>
-            <Button fx:id="searchButton" alignment="CENTER" layoutX="53.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickOnButton" text="Rechercher" />
+            <Button fx:id="searchButton" alignment="CENTER" layoutX="53.0" layoutY="51.0" mnemonicParsing="false" onAction="#clickOnButton" text="Rechercher" />
+            <TextField fx:id="SearchBar" alignment="CENTER" layoutX="27.0" layoutY="14.0" onAction="#newSearch" prefHeight="27.0" prefWidth="147.0" promptText="Nom du produit" />
          </children>
       </Pane>
    </children>

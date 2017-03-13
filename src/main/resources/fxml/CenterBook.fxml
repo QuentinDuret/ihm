@@ -25,22 +25,22 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                <image>
-                  <Image url="@../images/dvd/dvd-coffret-transformers.jpg" />
+                  <Image url="@../images/book/livreDemain.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <image>
-                  <Image url="@../images/dvd/filmDocteurFrankeisten.jpg" />
+                  <Image url="@../images/book/merlinBook.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../images/cd/cdAdele.jpg" />
+                  <Image url="@../images/book/livreDemain.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../images/cd/Many-faces-of-daft-punk-3-CD.jpg" />
+                  <Image url="@../images/book/merlinBook.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">

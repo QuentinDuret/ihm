@@ -1,115 +1,116 @@
 package fr.polytech.ihm.controller;
 
+
+import fr.polytech.ihm.OpenFxml;
+import fr.polytech.ihm.model.Item;
 import fr.polytech.ihm.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by Campo on 04/03/2017.
  */
 public class LeftController {
 
-    @FXML
-    private TextField SearchBar;
-    @FXML
-    private Button searchButton;
-    @FXML
-    private TableView<Product> itemTable;
-    @FXML
-    private TableColumn<Product,String> item;
-    @FXML
-    private TableColumn<Product,CheckBox> check1;
+    @FXML private TextField SearchBar;
+    @FXML private Button searchButton;
+    @FXML private CheckBox livreCheck;
+    @FXML private CheckBox dvdCheck;
+    @FXML private CheckBox cdCheck;
+    @FXML private CheckBox stageCheck;
+    @FXML private CheckBox zeroCheck;
+    @FXML private CheckBox dixCheck;
+    @FXML private CheckBox cinquanteCheck;
+    @FXML private Button rayonCheck;
 
-    private List products = new ArrayList<String>();
-    private int listSize =0;
-    private String product = "";
-
-    @FXML
-    void clickOnButton(ActionEvent event) {
-        SearchBar.getText();
-        String product = SearchBar.getText();
+    public void clickOnButton(ActionEvent event) {
+        openSearch(SearchBar.getText());
     }
 
-    public List createProductsList(){
-        products.add("Livres");
-        listSize++;
-        products.add("CD");
-        listSize++;
-        products.add("DVD");
-        listSize++;
-        products.add("Stages");
-        listSize++;
-        products.add("Adele");
-        listSize++;
-        return products;
+    public void newSearch(ActionEvent event){
+        openSearch(SearchBar.getText());
     }
 
-   /* @FXML
-    public void initialize(){
-        ObservableList<Product> departments = FXCollections.observableArrayList();
-        departments.add(new Product("SI", "Sciences Informatiques", "O+110", Color.BLUEVIOLET, siInternships));
-        departments.add(new Product("ELEC", "Electronique", "O+111", Color.ORANGE, elecInternships));
+    public void checkRayon(ActionEvent event) {checkBox(livreCheck,dvdCheck,cdCheck,stageCheck);}
 
-        tag.setCellValueFactory(cellData -> cellData.getValue().tagNameProperty());
-        name.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        room.setCellValueFactory(cellData -> cellData.getValue().meetingRoomProperty());
-    }*/
-
-    public String newSearch(ActionEvent event){
-        createProductsList();
-
-        for (int i = 0 ; i < listSize ; i++){
-            if (SearchBar.getText().equals(products.get(i))){
-                System.out.println("ok");
-                try {
-                    BorderPane borderPane = new BorderPane();
-
-                    Scene scene = new Scene(borderPane);
-                    Stage stage = new Stage();
-
-                    String fxmlFileTop = "/fxml/Haut_de_page.fxml";
-                    Parent rootNodeTop = FXMLLoader.load(getClass().getResource(fxmlFileTop));
-                    borderPane.setTop(rootNodeTop);
-
-                    String fxmlFileCenter = "/fxml/"+products.get(i)+".fxml";
-                    Parent rootNodeCenter = FXMLLoader.load(getClass().getResource(fxmlFileCenter));
-                    borderPane.setCenter(rootNodeCenter);
-
-
-                    String fxmlFileBottom = "/fxml/Bas_de_page.fxml";
-                    Parent rootNodeBottom = FXMLLoader.load(getClass().getResource(fxmlFileBottom));
-                    borderPane.setBottom(rootNodeBottom);
-
-                    String fxmlFileLeft = "/fxml/Barre_Recherche.fxml";
-                    Parent rootNodeLeft = FXMLLoader.load(getClass().getResource(fxmlFileLeft));
-                    borderPane.setLeft(rootNodeLeft);
-
-                    stage.setScene(scene);
-                    stage.show();
-                }
-                catch (IOException e){
-                    JOptionPane.showInputDialog(null, e);
-                }
-            }
+    public void checkBox (CheckBox livreCheck, CheckBox dvdCheck, CheckBox cdCheck, CheckBox stageCheck){
+        if (livreCheck.isSelected()){
+            changeCenter("CenterBook");
         }
-        return SearchBar.getText();
+        else if (dvdCheck.isSelected()){
+            changeCenter("centerDVD");
+        }
+        else if (cdCheck.isSelected()){
+            changeCenter("CenterCd");
+        }
+        else if (stageCheck.isSelected()){
+            changeCenter("CenterStage");
+        }
     }
 
-    public void items(){
+    public void checkPrice (ActionEvent event){ checkBoxPrice(zeroCheck, dixCheck, cinquanteCheck);}
+
+    private void checkBoxPrice(CheckBox zeroCheck, CheckBox dvdCheck, CheckBox cinquanteCheck){
+       if (zeroCheck.isSelected()){
+           changeCenter("cheap");
+       }
+       else if (dixCheck.isSelected()){
+            changeCenter("average");
+       }
+       else if (cinquanteCheck.isSelected()){
+           changeCenter("expensive");
+       }
+    }
+
+    public void openSearch(String name){
+        switch (name) {
+            case "Livre":
+            case "livre":
+            case "Livres":
+            case "livres":
+                changeCenter("CenterBook");
+                break;
+            case "DVD":
+            case "dvd":
+            case "Dvd":
+                changeCenter("centerDVD");
+                break;
+            case "CD":
+            case "cd":
+            case "Cd":
+                changeCenter("CenterCD");
+                break;
+            case "Stages":
+            case "Stage":
+            case "stage":
+            case "stages":
+                changeCenter("CenterStage");
+                break;
+            case "Panier":
+            case "panier":
+                changeCenter("commande");
+            default:
+                System.out.println("Cette page n'est pas encore implémentée.");
+                break;
+        }
+    }
+
+    private void changeCenter (String nameFxml){
+        Stage stage = (Stage) searchButton.getScene().getWindow();
+        OpenFxml openFxml = new OpenFxml("/fxml/"+nameFxml+".fxml");
+        openFxml.open(stage);
 
     }
+
+
 
 }

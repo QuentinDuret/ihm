@@ -25,8 +25,8 @@ public class CenterBookController {
     public void initialize() throws Exception {
 
         List<Product> product = Arrays.asList(new Product("/images/book/SoldesLivre.jpg",10),
-                new Product("/images/book/livreDemain.png",10),
-                new Product("/images/book/merlinBook.jpg",10));
+                new Product("/images/book/livreDemain.png",55),
+                new Product("/images/book/merlinBook.jpg",5));
 
         PromotionalProduct promotionalProduct = new PromotionalProduct(product);
 
