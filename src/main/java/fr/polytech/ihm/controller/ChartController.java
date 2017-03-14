@@ -16,11 +16,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChartController implements Initializable{
-    final static String first = "9 - 11";
-    final static String second = "11 - 13";
-    final static String third = "13 - 15";
-    final static String fourth = "15 - 17";
-    final static String fifth = "17 - 19";
+    private String first = "9 - 11";
+    private String second = "11 - 13";
+    private String third = "13 - 15";
+    private String fourth = "15 - 17";
+    private String fifth = "17 - 19";
 
     @FXML private BarChart<?,?> chart ;
     @FXML private CategoryAxis x;
