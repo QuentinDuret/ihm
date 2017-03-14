@@ -1,7 +1,6 @@
 package fr.polytech.ihm;
 
-import fr.polytech.ihm.model.PromotionalProduct;
-import javafx.geometry.Pos;
+import fr.polytech.ihm.model.Products;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -13,7 +12,7 @@ import javax.swing.*;
  */
 public class CreatePagination {
 
-    public StackPane createPage(int pageIndex, PromotionalProduct promotionalProduct){
+    public StackPane createPage(int pageIndex, Products products){
 
         StackPane stackPane = new StackPane();
 
@@ -21,7 +20,7 @@ public class CreatePagination {
         int page = pageIndex ;
         for (int i = page; i < page + 1 ; i++) {
             try {
-                String imageName = promotionalProduct.getPromotionalProduct().get(i).getName();
+                String imageName = products.getProducts().get(i).getName();
 
                 Image image = new Image(imageName);
                 ImageView imageView = new ImageView(image);

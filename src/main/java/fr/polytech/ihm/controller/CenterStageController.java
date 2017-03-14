@@ -1,8 +1,9 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.CreateGridPane;
 import fr.polytech.ihm.CreatePagination;
 import fr.polytech.ihm.model.Product;
-import fr.polytech.ihm.model.PromotionalProduct;
+import fr.polytech.ihm.model.Products;
 import javafx.fxml.FXML;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.GridPane;
@@ -26,12 +27,24 @@ public class CenterStageController {
 
         List<Product> product = Arrays.asList(new Product("/images/stage/dev-perso.jpg",10));
 
-        PromotionalProduct promotionalProduct = new PromotionalProduct(product);
+        Products products = new Products(product);
+
+        List<Product> productFlagship = Arrays.asList(new Product("/images/stage/dev-perso.jpg",10),
+                new Product("/images/stage/dev-perso.jpg",10),
+                new Product("/images/stage/dev-perso.jpg",10),
+                new Product("/images/stage/dev-perso.jpg",10),
+                new Product("/images/stage/dev-perso.jpg",10),
+                new Product("/images/stage/dev-perso.jpg",10));
+
+        Products productsFlagship = new Products(productFlagship);
 
         CreatePagination createPagination = new CreatePagination();
+        CreateGridPane gridPane = new CreateGridPane();
 
-        pagination.setPageCount(promotionalProduct.getPromotionalProduct().size());
-        pagination.setPageFactory((Integer pageIndex) -> createPagination.createPage(pageIndex, promotionalProduct));
+
+        pagination.setPageCount(products.getProducts().size());
+        pagination.setPageFactory((Integer pageIndex) -> createPagination.createPage(pageIndex, products));
+        flagshipProduct = gridPane.create(productsFlagship, flagshipProduct);
 
     }
 
