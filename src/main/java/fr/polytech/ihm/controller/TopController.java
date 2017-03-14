@@ -1,6 +1,8 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.CreateView;
 import fr.polytech.ihm.OpenFxml;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -37,6 +40,8 @@ public class TopController {
 
     @FXML
     private Button stageDev;
+
+    @FXML private Button knowMore;
 
     @FXML
     void clickBasket(MouseEvent event) {
@@ -79,6 +84,13 @@ public class TopController {
         openFxml.open(stage);
 
     }
+
+    @FXML
+    void clickKnowMore(MouseEvent event){
+        OpenFxml openFxml = new OpenFxml("/fxml/chartChart.fxml");
+        openFxml.open();
+    }
+
 
 
 }

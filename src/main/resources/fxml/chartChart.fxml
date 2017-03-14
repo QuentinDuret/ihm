@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="chartPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ChartController">
+   <children>
+      <BarChart fx:id="chart" barGap="6.0" categoryGap="1.0" layoutX="60.0" layoutY="-7.0" stylesheets="@../css/chart.css" title="Heures d'affluence">
+        <xAxis>
+          <CategoryAxis  label="Heures" side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="y" label="Nombre de personnes" side="LEFT"/>
+        </yAxis>
+      </BarChart>
+   </children>
+</Pane>

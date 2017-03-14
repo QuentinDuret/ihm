@@ -43,10 +43,18 @@
                   <Font name="System Italic" size="15.0" />
                </font>
             </Label>
-            <Label text="de 9h00 à 13h30" />
+            <Label text="de 9h00 à 13h30">
+               <VBox.margin>
+                  <Insets bottom="4.0" />
+               </VBox.margin></Label>
+            <Button fx:id="knowMore" mnemonicParsing="false" onMouseClicked="#clickKnowMore" text="En savoir plus">
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin>
+            </Button>
          </children>
          <HBox.margin>
-            <Insets bottom="20.0" top="20.0" />
+            <Insets bottom="20.0" top="5.0" />
          </HBox.margin>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="360.0">

@@ -3,18 +3,11 @@ package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.OpenFxml;
 
-import fr.polytech.ihm.model.Product;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Created by Campo on 04/03/2017.
