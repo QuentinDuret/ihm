@@ -1,21 +1,18 @@
 package fr.polytech.ihm;
 
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 
 import javax.swing.*;
 
 import static javafx.geometry.HPos.RIGHT;
-import static javafx.geometry.Pos.CENTER_RIGHT;
 
 /**
  * Created by Quentin on 08/03/2017.
+ *
  */
 public class CreateView {
 
