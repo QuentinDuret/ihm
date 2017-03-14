@@ -1,6 +1,7 @@
 package fr.polytech.ihm;
 
 import fr.polytech.ihm.model.PromotionalProduct;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;

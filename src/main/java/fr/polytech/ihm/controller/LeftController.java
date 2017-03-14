@@ -2,7 +2,7 @@ package fr.polytech.ihm.controller;
 
 
 import fr.polytech.ihm.OpenFxml;
-import fr.polytech.ihm.model.Item;
+
 import fr.polytech.ihm.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

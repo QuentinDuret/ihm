@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -75,6 +77,7 @@ public class TopController {
         Stage stage = (Stage) stageDev.getScene().getWindow();
         OpenFxml openFxml = new OpenFxml("/fxml/CenterStage.fxml");
         openFxml.open(stage);
+
     }
 
 
