@@ -23,36 +23,33 @@ public class CreateView {
 
     public Scene addCenter() {
 
-        StackPane stackPane = new StackPane();
-        stackPane.setPrefSize(900.0,950.0);
+        AnchorPane anchorPane = new AnchorPane();
 
         try {
 
-            String fxmlFileTop = "/fxml/Haut_de_page.fxml";
-            Parent rootNodeTop = FXMLLoader.load(getClass().getResource(fxmlFileTop));
-            stackPane.getChildren().add(rootNodeTop);
-            stackPane.setAlignment(rootNodeTop, Pos.TOP_CENTER);
+            String fxmlFile = "/fxml/Haut_de_page.fxml";
+            Parent rootNode = FXMLLoader.load(getClass().getResource(fxmlFile));
+            AnchorPane.setTopAnchor(rootNode,0.0);
 
-
-            Parent rootNodeCenter = FXMLLoader.load(getClass().getResource(nameFileCenter));
-            stackPane.getChildren().add(rootNodeCenter);
-            stackPane.setAlignment(rootNodeCenter,Pos.CENTER_RIGHT);
+            Parent rootNodeTop = FXMLLoader.load(getClass().getResource(nameFileCenter));
+            AnchorPane.setRightAnchor(rootNodeTop,0.0);
 
             String fxmlFileBottom = "/fxml/Bas_de_page.fxml";
             Parent rootNodeBottom = FXMLLoader.load(getClass().getResource(fxmlFileBottom));
-            stackPane.getChildren().add(rootNodeBottom);
-            stackPane.setAlignment(rootNodeBottom,Pos.BOTTOM_CENTER);
+            AnchorPane.setBottomAnchor(rootNodeBottom,0.0);
 
             String fxmlFileLeft = "/fxml/Barre_Recherche.fxml";
             Parent rootNodeLeft = FXMLLoader.load(getClass().getResource(fxmlFileLeft));
-            stackPane.getChildren().add(rootNodeLeft);
-            stackPane.setAlignment(rootNodeLeft,Pos.CENTER_LEFT);
+            AnchorPane.setLeftAnchor(rootNodeLeft,0.0);
+
+
+            anchorPane.getChildren().addAll(rootNode,rootNodeBottom,rootNodeLeft,rootNodeTop);
         }
         catch (Exception e){
             JOptionPane.showInputDialog(null, e);
         }
 
-        Scene scene = new Scene(stackPane);
+        Scene scene = new Scene(anchorPane);
         scene.getStylesheets().add("/css/presentation.css");
 
         return scene;
