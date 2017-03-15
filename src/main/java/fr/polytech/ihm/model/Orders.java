@@ -20,6 +20,7 @@ public class Orders {
         orders.add(new Order("2"));
         orders.add(new Order("3"));
         orders.add(new Order("4"));
+        orders.add(new Order("12"));
     }
 
     public boolean isAOrder(String orderNumber){

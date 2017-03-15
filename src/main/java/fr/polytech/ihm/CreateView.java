@@ -48,7 +48,6 @@ public class CreateView {
         scene.getStylesheets().add("/css/presentation.css");
 
         return scene;
-
     }
 
 }
