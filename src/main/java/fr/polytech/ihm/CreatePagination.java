@@ -54,8 +54,7 @@ public class CreatePagination {
 
         VBox box = new VBox(5);
 
-        int page = pageIndex * itemsPerPage();
-        for (int i = page; i < page + itemsPerPage() ; i++) {
+        for (int i = pageIndex; i < pageIndex + itemsPerPage() ; i++) {
             try {
                 String imageName = products.getProducts().get(i).getName();
 
