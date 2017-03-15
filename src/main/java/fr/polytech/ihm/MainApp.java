@@ -24,7 +24,6 @@ public class MainApp extends Application {
         primaryStage.setTitle("Bienvenue");
 
         CreateView createView = new CreateView("/fxml/centerHome.fxml");
-        //CreateView createView = new CreateView("/fxml/book.fxml");
         primaryStage.setScene(createView.addCenter());
 
         primaryStage.show();
