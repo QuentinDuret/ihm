@@ -4,6 +4,7 @@ import fr.polytech.ihm.model.Product;
 import fr.polytech.ihm.model.Products;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 
 import java.util.List;
@@ -28,7 +29,6 @@ public class CreateGridPane {
                 if (image.getWidth()>210){
                     imageView.setFitWidth(210.0);
                 }
-
                 gridPane.add(imageView,j,i);
             }
         }

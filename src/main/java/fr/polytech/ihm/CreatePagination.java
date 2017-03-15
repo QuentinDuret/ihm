@@ -4,6 +4,7 @@ import fr.polytech.ihm.model.Products;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import javax.swing.*;
 
@@ -42,6 +43,41 @@ public class CreatePagination {
             }
         }
         return stackPane;
+    }
+
+
+    public int itemsPerPage (){
+        return 4;
+    }
+
+    public VBox createPageProducts(int pageIndex, Products products){
+
+        VBox box = new VBox(5);
+
+        int page = pageIndex * itemsPerPage();
+        for (int i = page; i < page + itemsPerPage() ; i++) {
+            try {
+                String imageName = products.getProducts().get(i).getName();
+
+                Image image = new Image(imageName);
+                ImageView imageView = new ImageView(image);
+                if(image.getHeight()>150) {
+                    imageView.setFitHeight(150);
+                }
+                if(image.getWidth()>700) {
+                    imageView.setFitWidth(700);
+                }
+                StackPane element = new StackPane(imageView);
+
+                element.setCenterShape(true);
+
+                box.getChildren().add(element);
+            }
+            catch (Exception e){
+                JOptionPane.showInputDialog(null, e);
+            }
+        }
+        return box;
     }
 
 }

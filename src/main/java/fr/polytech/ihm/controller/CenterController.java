@@ -6,8 +6,13 @@ import fr.polytech.ihm.model.Product;
 import fr.polytech.ihm.model.Products;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.GridPane;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,6 +21,8 @@ import java.util.List;
  * Created by Quentin on 04/03/2017.
  */
 public class CenterController {
+
+    private List<Product> productFlagship;
 
     @FXML
     private Pagination pagination;
@@ -33,7 +40,7 @@ public class CenterController {
 
         Products products = new Products(product);
 
-        List<Product> productFlagship = Arrays.asList(new Product("/images/dvd/dvd-coffret-transformers.jpg",10),
+        productFlagship = Arrays.asList(new Product("/images/dvd/dvd-coffret-transformers.jpg",10),
                 new Product("/images/book/merlinBook.jpg",10),
                 new Product("/images/book/livreDemain.png",10),
                 new Product("/images/cd/cdAdele.jpg",10),
