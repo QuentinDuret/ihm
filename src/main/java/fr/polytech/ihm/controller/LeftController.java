@@ -23,7 +23,6 @@ public class LeftController {
     @FXML private CheckBox zeroCheck;
     @FXML private CheckBox dixCheck;
     @FXML private CheckBox cinquanteCheck;
-    @FXML private Button rayonCheck;
 
     public void clickOnButton(ActionEvent event) {
         openSearch(SearchBar.getText());
@@ -37,7 +36,7 @@ public class LeftController {
 
     public void checkBox (CheckBox livreCheck, CheckBox dvdCheck, CheckBox cdCheck, CheckBox stageCheck){
         if (livreCheck.isSelected()){
-            changeCenter("CenterBook");
+            changeCenter("book");
         }
         else if (dvdCheck.isSelected()){
             changeCenter("centerDVD");
@@ -88,9 +87,6 @@ public class LeftController {
             case "stages":
                 changeCenter("CenterStage");
                 break;
-            case "Panier":
-            case "panier":
-                changeCenter("commande");
             default:
                 System.out.println("Cette page n'est pas encore implémentée.");
                 break;

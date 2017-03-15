@@ -11,6 +11,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,61 +27,86 @@ public class ChartController implements Initializable{
     @FXML private CategoryAxis x;
     @FXML private NumberAxis y;
 
+    @FXML private Button lundiButton;
+    @FXML private Button mardiButton;
+    @FXML private Button mercrediButton;
+    @FXML private Button jeudiButton;
+    @FXML private Button vendrediButton;
+    @FXML private Button samediButton;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        createChar("lundi");
+    }
+
+    public void lundi(){
+        createChar("lundi");
+    }
+
+    public void mardi(){
+        createChar("mardi");
+    }
+
+    public void mercredi(){
+        createChar("mercredi");
+    }
+
+    public void jeudi(){
+        createChar("jeudi");
+    }
+
+    public void vendredi(){
+        createChar("vendredi");
+    }
+
+    public void samedi(){
+        createChar("samedi");
+    }
+
+    public void createChar(String day){
         chart.setTitle("Heures d'affluence");
         x.setLabel("Heures");
         y.setLabel("Affluence");
 
-        XYChart.Series lundi = new XYChart.Series<>();
-        lundi.setName("Lundi");
-        lundi.getData().add(new XYChart.Data(first, 25));
-        lundi.getData().add(new XYChart.Data(second, 20));
-        lundi.getData().add(new XYChart.Data(third, 10));
-        lundi.getData().add(new XYChart.Data(fourth, 35));
-        lundi.getData().add(new XYChart.Data(fifth, 12));
+        switch (day){
+            case "lundi" :
+                XYChart.Series lundi = new XYChart.Series<>();
+                chart(lundi,day, 20, 35, 25, 15, 2);
+                break;
+            case "mardi" :
+                XYChart.Series mardi = new XYChart.Series<>();
+                chart(mardi,day,12,15,23,5,6);
+                break;
+            case "mercredi" :
+                XYChart.Series mercredi = new XYChart.Series<>();
+                chart(mercredi,day,5,23,15,20,2);
+                break;
 
-        XYChart.Series mardi = new XYChart.Series<>();
-        mardi.setName("Mardi");
-        mardi.getData().add(new XYChart.Data(first, 24));
-        mardi.getData().add(new XYChart.Data(second, 30));
-        mardi.getData().add(new XYChart.Data(third, 30));
-        mardi.getData().add(new XYChart.Data(fourth, 37));
-        mardi.getData().add(new XYChart.Data(fifth, 15));
+            case "jeudi" :
+                XYChart.Series jeudi = new XYChart.Series<>();
+                chart(jeudi,day,26,4,15,26,23);
+                break;
 
-        XYChart.Series mercredi = new XYChart.Series<>();
-        mercredi.setName("Mercredi");
-        mercredi.getData().add(new XYChart.Data(first, 25));
-        mercredi.getData().add(new XYChart.Data(second, 20));
-        mercredi.getData().add(new XYChart.Data(third, 10));
-        mercredi.getData().add(new XYChart.Data(fourth, 35));
-        mercredi.getData().add(new XYChart.Data(fifth, 12));
+            case "vendredi" :
+                XYChart.Series vendredi = new XYChart.Series<>();
+                chart(vendredi,day,20,12,15,25,3);
+                break;
 
-        XYChart.Series jeudi = new XYChart.Series<>();
-        jeudi.setName("Jeudi");
-        jeudi.getData().add(new XYChart.Data(first, 25));
-        jeudi.getData().add(new XYChart.Data(second, 20));
-        jeudi.getData().add(new XYChart.Data(third, 10));
-        jeudi.getData().add(new XYChart.Data(fourth, 35));
-        jeudi.getData().add(new XYChart.Data(fifth, 12));
+            case "samedi" :
+                XYChart.Series samedi = new XYChart.Series<>();
+                chart(samedi,day,15,30,0,0,0);
+                break;
+        }
+    }
 
-        XYChart.Series vendredi = new XYChart.Series<>();
-        vendredi.setName("Vendredi");
-        vendredi.getData().add(new XYChart.Data(first, 15));
-        vendredi.getData().add(new XYChart.Data(second, 10));
-        vendredi.getData().add(new XYChart.Data(third, 15));
-        vendredi.getData().add(new XYChart.Data(fourth, 35));
-        vendredi.getData().add(new XYChart.Data(fifth, 27));
-
-        XYChart.Series samedi = new XYChart.Series<>();
-        samedi.setName("Samedi");
-        samedi.getData().add(new XYChart.Data(first, 15));
-        samedi.getData().add(new XYChart.Data(second, 25));
-        samedi.getData().add(new XYChart.Data(third, 0));
-        samedi.getData().add(new XYChart.Data(fourth, 0));
-        samedi.getData().add(new XYChart.Data(fifth, 0));
-
-        chart.getData().addAll(lundi, mardi, mercredi, jeudi, vendredi, samedi);
-
+    public void chart(XYChart.Series name, String day, int m, int n, int o, int p, int q){
+        name.setName(day);
+        name.getData().add(new XYChart.Data(first, m));
+        name.getData().add(new XYChart.Data(second, n));
+        name.getData().add(new XYChart.Data(third, o));
+        name.getData().add(new XYChart.Data(fourth, p));
+        name.getData().add(new XYChart.Data(fifth, q));
+        chart.getData().clear();
+        chart.getData().addAll(name);
     }
 }
